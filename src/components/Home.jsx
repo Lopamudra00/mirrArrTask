@@ -38,7 +38,7 @@ const Home = () => {
 
             </div>
             <div className="mt-2 relative">
-                <img className="w-full h-80 rounded-b-3xl shadow-xl" src={BG_IMG} />
+                <img className="w-full h-80 rounded-b-3xl shadow-xl" src={BG_IMG} alt="bg-img" />
                 <div className="absolute ">
                     {/* Your content inside the overlay div */}
                     <p className="text-white">Overlay Content</p>
