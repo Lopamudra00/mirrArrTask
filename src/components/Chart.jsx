@@ -38,16 +38,21 @@ const Chart = (props) => {
         <ResponsiveContainer
             width="100%">
             <LineChart
-                width={600}
-                height={300}
+                width={550}
+                height={200}
                 data={formatChartData()}
+                margin={{
+                    top: 20,
+                    right: 40,
+                    bottom: 10,
+                }}
             >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="date" />
-                <YAxis />
+                <YAxis ticks={[100, 200, 300, 400, 500]} />
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="temperature" stroke="#5C6582" />
+                <Line type="monotone" dataKey="temperature" stroke="#5C6582" name="Temperature" />
                 <Line type="monotone" dataKey="tempMin" stroke="#82ca9d" name="Min Temperature" />
                 <Line type="monotone" dataKey="tempMax" stroke="#ff7300" name="Max Temperature" />
             </LineChart>

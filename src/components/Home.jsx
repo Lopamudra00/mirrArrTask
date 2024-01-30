@@ -41,39 +41,54 @@ const Home = () => {
             </div>
             <div className="flex">
                 <div className="h-80 w-2/5 mx-2 my-4">
-                    <div className="flex flex-wrap gap-5">
-                        <div className="text-white h-28 w-60 bg-slate-800 rounded-xl justify-center">
+                    <div className="flex flex-wrap gap-5 my-4">
+                        <div className="text-white h-32 w-44 bg-slate-800 rounded-xl justify-center items-center">
                             <p className="text-center mt-8">
-                                Minimun temp
+                                Temperature
                                 <br />
-                                {apiData && apiData.main.temp_min}
+                                {apiData && (apiData.main.temp) + "K"}
 
                             </p>
                         </div>
-                        <div className="text-white h-28 w-60 bg-slate-800 rounded-xl justify-center ">
+                        <div className="text-white h-32 w-44 bg-slate-800 rounded-xl justify-center">
+                            <p className="text-center mt-8">
+                                Minimun temp
+                                <br />
+                                {apiData && (apiData.main.temp_min).toFixed(1) + " °F"}
+
+                            </p>
+                        </div>
+                        <div className="text-white h-32 w-44 bg-slate-800 rounded-xl justify-center ">
                             <p className="text-center mt-8">
                                 Maxi temp
                                 <br />
-                                {apiData && apiData.main.temp_max}
+                                {apiData && (apiData.main.temp_max).toFixed(1) + " °F"}
                             </p>
                         </div>
-                        <div className="text-white h-28 w-60 bg-slate-800 rounded-xl justify-center items-center">
+                        <div className="text-white h-32 w-44 bg-slate-800 rounded-xl justify-center items-center">
                             <p className="text-center mt-8">
                                 Humidity
                                 <br />
-                                {apiData && apiData.main.humidity}
+                                {apiData && apiData.main.humidity + "%"}
                             </p>
                         </div>
-                        <div className="text-white h-28 w-60 bg-slate-800 rounded-xl justify-center items-center">
+                        <div className="text-white h-32 w-44 bg-slate-800 rounded-xl justify-center items-center">
                             <p className="text-center mt-8">
-                                wind speed and dir.
-                                <br />
-                                {apiData && apiData.wind.speed}
+                                wind speed  <br />{apiData && apiData.wind.speed + " m/s"}
+
+
                             </p>
                         </div>
+                        <div className="text-white h-32 w-44 bg-slate-800 rounded-xl justify-center items-center">
+                            <p className="text-center mt-8">
+                                wind direction <br /> {apiData && apiData.wind.deg + "°"}
+
+                            </p>
+                        </div>
+
                     </div>
                 </div>
-                <div className="h-80 w-3/5 mx-2 my-4">
+                <div className="h-[275px] w-3/5 mx-5 mt-8 bg-slate-800 rounded-xl justify-center items-center">
                     <Chart search={search} />
                 </div>
 
