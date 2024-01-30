@@ -3,7 +3,6 @@ import { Weather_Forecast_API, Weather_Forecast_API_KEY } from '../config';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const Chart = (props) => {
-    console.log(props)
     const [forecastData, setForecastData] = useState(null);
     useEffect(() => {
         const fetchForecast = async () => {
@@ -11,11 +10,11 @@ const Chart = (props) => {
                 const response = await fetch(Weather_Forecast_API + props.search + Weather_Forecast_API_KEY);
                 const json = await response.json();
                 console.log('JSON Data:', json);
-                if (response.ok) {
+                if (response.ok)
                     setForecastData(json);
-                } else {
+                else
                     console.error('Error:', json.message);
-                }
+
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -26,9 +25,9 @@ const Chart = (props) => {
         if (forecastData && forecastData.list) {
             return forecastData.list.map(entry => ({
                 date: new Date(entry.dt * 1000).toLocaleString(),
-                temperature: entry.main.temp,
-                tempMin: entry.main.temp_min,
-                tempMax: entry.main.temp_max,
+                temperature: entry.main.temp - 273.15,
+                tempMin: entry.main.temp_min - 273.15,
+                tempMax: entry.main.temp_max - 273.15,
             }));
         }
         return [];
@@ -49,7 +48,7 @@ const Chart = (props) => {
             >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="date" />
-                <YAxis ticks={[100, 200, 300, 400, 500]} />
+                <YAxis ticks={[-20, 0, 20, 35, 50]} />
                 <Tooltip />
                 <Legend />
                 <Line type="monotone" dataKey="temperature" stroke="#5C6582" name="Temperature" />
