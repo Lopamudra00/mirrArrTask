@@ -8,7 +8,7 @@ const Chart = (props) => {
     useEffect(() => {
         const fetchForecast = async () => {
             try {
-                const response = await fetch(Weather_Forecast_API + props + Weather_Forecast_API_KEY);
+                const response = await fetch(Weather_Forecast_API + props.search + Weather_Forecast_API_KEY);
                 const json = await response.json();
                 console.log('JSON Data:', json);
                 if (response.ok) {
