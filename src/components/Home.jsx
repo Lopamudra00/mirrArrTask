@@ -10,7 +10,7 @@ const Home = () => {
     const [temp, setTemp] = useState("");
     const [maxTemp, setMaxTemp] = useState(null);
     const [minTemp, setMinTemp] = useState(null);
-    const [dark, setDark] = useState(false);
+    const [dark, setDark] = useState(true);
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch(Weather_API + search + API_KEY
