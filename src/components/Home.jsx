@@ -33,6 +33,8 @@ const Home = () => {
     const toggleTheme = () => {
         setDark(!dark);
     }
+    const tempConversion = (val) => (isCelsius ? (val - 273.15 + " °C") : ((val - 273.15) * (9 / 5) + 32 + " °F"))
+    const isTempValReceived = (temperature) => (temperature ? tempConversion(temperature) : "")
 
     return (
         <div className={`p-2 ${dark ? "bg-[#040D28]" : "bg-[#2E4874]"}`}>
@@ -64,21 +66,21 @@ const Home = () => {
                             <p className="text-center mt-8">
                                 Temperature
                                 <br />
-                                {temp ? (isCelsius ? (temp - 273.15 + " °C") : ((temp - 273.15) * (9 / 5) + 32 + " °F")) : ""}
+                                {isTempValReceived(temp)}
                             </p>
                         </div>
                         <div className="text-white h-32 w-44 bg-slate-800 rounded-xl justify-center shadow-md shadow-gray-200">
                             <p className="text-center mt-8">
-                                Minimun temp
+                                Minimum temp
                                 <br />
-                                {maxTemp ? (isCelsius ? (maxTemp - 273.15 + " °C") : ((maxTemp - 273.15) * (9 / 5) + 32 + " °F")) : ""}
+                                {isTempValReceived(minTemp)}
                             </p>
                         </div>
                         <div className="text-white h-32 w-44 bg-slate-800 rounded-xl justify-center shadow-md shadow-gray-200">
                             <p className="text-center mt-8">
-                                Maxi temp
+                                Maximum temp
                                 <br />
-                                {minTemp ? (isCelsius ? (minTemp - 273.15 + " °C") : ((minTemp - 273.15) * (9 / 5) + 32 + " °F")) : ""}
+                                {isTempValReceived(maxTemp)}
                             </p>
                         </div>
                         <div className="text-white h-32 w-44 bg-slate-800 rounded-xl justify-center items-center shadow-md shadow-gray-200">
