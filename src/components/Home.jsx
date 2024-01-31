@@ -38,7 +38,7 @@ const Home = () => {
         <div className={`p-2 ${dark ? "bg-[#040D28]" : "bg-[#2E4874]"}`}>
             <div className={`flex justify-evenly shadow-xl rounded-2xl ${dark ? "bg-[#2E4874]" : "bg-[#947FAF]"} `}>
                 {/* navbar */}
-                <div className="mr-80 font-bold p-2 text-white text-4xl">Weather Forecast</div>
+                <div className="mr-80 font-bold p-2 h-[70px] text-white text-4xl">Weather Forecast</div>
                 <button onClick={toggleTheme} className="text-white">Switch Theme</button>
                 <div className="ml-80">
                     <input
@@ -64,29 +64,21 @@ const Home = () => {
                             <p className="text-center mt-8">
                                 Temperature
                                 <br />
-                                {isCelsius
-                                    ? temp - 273.15 + " °C"
-                                    : (temp - 273.15) * (9 / 5) + 32 + " °F"}
-
+                                {temp ? (isCelsius ? (temp - 273.15 + " °C") : ((temp - 273.15) * (9 / 5) + 32 + " °F")) : ""}
                             </p>
                         </div>
                         <div className="text-white h-32 w-44 bg-slate-800 rounded-xl justify-center shadow-md shadow-gray-200">
                             <p className="text-center mt-8">
                                 Minimun temp
                                 <br />
-                                {isCelsius
-                                    ? minTemp - 273.15 + " °C"
-                                    : (minTemp - 273.15) * (9 / 5) + 32 + " °F"}
-
+                                {maxTemp ? (isCelsius ? (maxTemp - 273.15 + " °C") : ((maxTemp - 273.15) * (9 / 5) + 32 + " °F")) : ""}
                             </p>
                         </div>
                         <div className="text-white h-32 w-44 bg-slate-800 rounded-xl justify-center shadow-md shadow-gray-200">
                             <p className="text-center mt-8">
                                 Maxi temp
                                 <br />
-                                {isCelsius
-                                    ? maxTemp - 273.15 + " °C"
-                                    : (maxTemp - 273.15) * (9 / 5) + 32 + " °F"}
+                                {minTemp ? (isCelsius ? (minTemp - 273.15 + " °C") : ((minTemp - 273.15) * (9 / 5) + 32 + " °F")) : ""}
                             </p>
                         </div>
                         <div className="text-white h-32 w-44 bg-slate-800 rounded-xl justify-center items-center shadow-md shadow-gray-200">
