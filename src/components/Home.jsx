@@ -11,6 +11,7 @@ const Home = () => {
     const [maxTemp, setMaxTemp] = useState(null);
     const [minTemp, setMinTemp] = useState(null);
     const [dark, setDark] = useState(true);
+    console.log(search)
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch(Weather_API + search + API_KEY
